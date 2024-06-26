@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/components/persistence-xtdb/persistence-xtdb.iml" filepath="$PROJECT_DIR$/components/persistence-xtdb/persistence-xtdb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xtdb-poly-test-hang.iml" filepath="$PROJECT_DIR$/xtdb-poly-test-hang.iml" />
+    </modules>
+  </component>
+</project>

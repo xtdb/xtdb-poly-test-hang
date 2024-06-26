@@ -1,6 +1,16 @@
 (ns testing-xtdb-poly.persistence-xtdb.interface-test
-  (:require [clojure.test :as test :refer :all]
-            [testing-xtdb-poly.persistence-xtdb.interface :as persistence-xtdb]))
+  (:require [clojure.test :refer :all]
+            [xtdb.api :as xt]
+            [xtdb.node :as xtn]))
 
 (deftest dummy-test
-  (is (= 1 1)))
+  (testing "this hangs indefinitely"
+    (println "Starting node")
+    (let [node (xtn/start-node {})
+          {:keys [xt/id] :as person} {:xt/id (random-uuid) :name "John Doe"}]
+      (println "Transacting person")
+      (xt/execute-tx node [[:put-docs :person person]])
+      (println "Person transacted")
+      (is (= person
+             (xt/q node '(from :person [* {:xt/id $id}])
+                   {:id id}))))))

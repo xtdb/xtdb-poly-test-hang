@@ -1,10 +1,14 @@
 {:aliases {:dev  {:extra-paths ["development/src"]
 
-                  :extra-deps  {org.clojure/clojure {:mvn/version "1.11.1"}
-
-                                test/xtdb {:local/root "components/persistence-xtdb"}}}
+                  :extra-deps  {org.clojure/clojure       {:mvn/version "1.11.3"}
+                                com.xtdb/xtdb-api         {:mvn/version "2.0.0-SNAPSHOT"}
+                                com.xtdb/xtdb-core        {:mvn/version "2.0.0-SNAPSHOT"}
+                                org.clojure/tools.logging {:mvn/version "1.3.0"}
+                                test/xtdb                 {:local/root "components/persistence-xtdb"}}}
 
            :test {:extra-paths []}
 
-           :poly {:main-opts  ["-m" "polylith.clj.core.poly-cli.core"]
+           :poly {:jvm-opts   ["--add-opens=java.base/java.nio=ALL-UNNAMED"
+                               "-Dio.netty.tryReflectionSetAccessible=true"]
+                  :main-opts  ["-m" "polylith.clj.core.poly-cli.core"]
                   :extra-deps {polylith/clj-poly {:mvn/version "0.2.19"}}}}}
