@@ -10,8 +10,9 @@
              :test {:jvm-opts   ["--add-opens=java.base/java.nio=ALL-UNNAMED"
                                  "-Dio.netty.tryReflectionSetAccessible=true"]
                     :extra-paths ["components/persistence-xtdb/test"]
-                    :extra-deps {io.github.cognitect-labs/test-runner
-                                 {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                    :extra-deps {io.github.cognitect-labs/test-runner {:git/tag "v0.5.1" :git/sha "dfb30dd"}
+                                 ch.qos.logback/logback-classic {:mvn/version "1.5.6"}
+}
                     :exec-fn cognitect.test-runner.api/test}
 
              :poly {:jvm-opts   ["--add-opens=java.base/java.nio=ALL-UNNAMED"
